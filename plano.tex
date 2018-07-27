@@ -1,0 +1,98 @@
+\documentclass[13pt]{extarticle}
+
+\usepackage{graphicx,url}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{authblk}
+\usepackage{datetime}
+
+\usepackage{titling}
+
+% autores na esquerda da página
+\preauthor{\begin{flushleft}\large}
+\postauthor{\par\end{flushleft}}
+
+\usepackage{tabularx}
+\usepackage{cite}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{changepage}
+
+%utilizar quadrados pretos no cronograma
+\usepackage{xcolor}
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+
+\postdate{\end{center}\hspace*{-12.5em}}
+
+\usepackage{tikzpagenodes}
+
+% mudar tamanho do título do Abstract
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else
+      \begin{center}%
+        {\bfseries \Large\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+      \end{center}%
+      \quotation
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+
+% logo do INCT
+\newcommand{\mylogo}[1]{%
+\tikz[remember picture,overlay] {%
+  \node[inner sep=0pt,anchor=west] at ([yshift=0.05cm]current page text area.north west){#1};}
+  }
+
+% logo do IME (se precisar)
+\newcommand{\usplogo}[1]{%
+\tikz[remember picture, overlay] {%
+	\node[inner sep=0pt, anchor=east] at ([yshift=0.05cm]current page text area.north east){#1};}
+}
+
+% margens
+\usepackage[bottom=2cm,top=3cm,left=3cm,right=2cm]{geometry}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{xcolor}
+
+
+\begin{document}
+\sloppy
+
+\title{%
+\huge \textbf{Projeto de Mestrado} \\~\\
+  \Huge \textit{Identificação do projeto\\
+  Quebrando linhas}\\
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.5pt}}
+  \LARGE \textbf{\textit{Identificação da instituição}}
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.5pt}}
+  \\~\\
+  \Large Descrição com o número do processo e título\\
+  }
+
+\author{~\\~\\\textbf{Bolsista}\\Nome do Bolsista\\ Instituição\\~\\\textbf{Orientador}\\Nome do Orientador\\Instituição do Orientador\\~\\\textbf{Supervisor Tecnológico}\\Nome do supervisor tecnológico (se houver)\\Nome da Instituição\\}
+
+\maketitle
+\mylogo{\includegraphics[scale=0.50]{images/Picture_interscity.png}} % imagem com o logo
+\onehalfspacing
+%-----------------------------------------------------------------------------%
+\input{sections/00-resumo}
+\input{sections/01-introducao}
+\input{sections/02-objetivos}
+\input{sections/03-justificativa}
+\input{sections/04-metodologia}
+\input{sections/05-planejamento}
+%-----------------------------------------------------------------------------%
+\bibliographystyle{splncs03}
+\bibliography{referencias}
+\end{document}
